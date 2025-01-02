@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Property Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#add-asset">Add Asset</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#view-assets">View Assets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#add-tenant">Add Tenant</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#view-transactions">Transactions</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  </header>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./g123.jpg" class="d-block w-100" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="./fdd.jpg" class="d-block w-100" alt="Image 2">
+      </div>
+      <div class="carousel-item">
+        <img src="./g122.jpg" class="d-block w-100" alt="Image 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <section id="home" class="container my-5">
+      <h2>Welcome to the Property Management System</h2>
+      <p>Manage your assets, tenants, and transactions all in one place.</p>
+  </section>
+
+  <section id="add-asset" class="container my-5">
+      <h2>Add New Asset</h2>
+      <form action="add_asset.php" method="POST">
+          <div class="mb-3">
+              <label for="AssetType" class="form-label">Asset Type:</label>
+              <input type="text" id="AssetType" name="AssetType" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="Location" class="form-label">Location:</label>
+              <input type="text" id="Location" name="Location" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="Size" class="form-label">Size (sqm):</label>
+              <input type="number" id="Size" name="Size" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="Value" class="form-label">Value (THB):</label>
+              <input type="number" id="Value" name="Value" class="form-control" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Asset</button>
+      </form>
+  </section>
+
+  <section id="view-assets" class="container my-5">
+      <h2>View Assets</h2>
+      <div id="assets-list">
+          <?php include 'fetch_assets.php'; ?>
+      </div>
+  </section>
+
+  <section id="add-tenant" class="container my-5">
+      <h2>Add New Tenant</h2>
+      <form action="add_tenant.php" method="POST">
+          <div class="mb-3">
+              <label for="TenantName" class="form-label">Tenant Name:</label>
+              <input type="text" id="TenantName" name="TenantName" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="ContactNumber" class="form-label">Contact Number:</label>
+              <input type="text" id="ContactNumber" name="ContactNumber" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="LeaseStart" class="form-label">Lease Start:</label>
+              <input type="date" id="LeaseStart" name="LeaseStart" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="LeaseEnd" class="form-label">Lease End:</label>
+              <input type="date" id="LeaseEnd" name="LeaseEnd" class="form-control" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Tenant</button>
+      </form>
+  </section>
+
+  <section id="view-transactions" class="container my-5">
+      <h2>Transactions</h2>
+      <div id="transactions-list">
+          <?php include 'fetch_transactions.php'; ?>
+      </div>
+  </section>
+
+  <footer class="bg-dark text-light py-3 text-center">
+      <p>&copy; 2024 Alpha Don Quixote, Inc. สงวนลิขสิทธิ์</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

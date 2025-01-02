@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Asset</title>
+</head>
+<body>
+    <h2>Add New Asset</h2>
+    <form action="add_asset.php" method="POST">
+        <label for="AssetType">Asset Type:</label>
+        <input type="text" id="AssetType" name="AssetType" required>
+
+        <label for="Location">Location:</label>
+        <input type="text" id="Location" name="Location" required>
+
+        <label for="Size">Size (sqm):</label>
+        <input type="number" id="Size" name="Size" step="0.01" required>
+
+        <label for="Value">Value (THB):</label>
+        <input type="number" id="Value" name="Value" step="0.01" required>
+
+        <button type="submit">Add Asset</button>
+    </form>
+</body>
+</html>
